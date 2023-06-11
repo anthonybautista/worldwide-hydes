@@ -96,32 +96,32 @@ function App() {
               <Grid container sx={{padding:0}} alignItems="center">
                 <Grid item xs={12} sx={{height: 1100}}>
                   <Grid container sx={{padding:0, width: "100%"}} alignItems="center">
-                    <Grid item xs={1} sm={2} display="flex" justifyContent="right">
+                    <Grid item xs={1} sm={3} display="flex" justifyContent="right">
                       <Image
                           src="/images/left.png"
                           alt="Left"
                           fit="fill"
                           height="50px"
                           width="50px"
-                          sx={{cursor: "pointer", position: "relative", right: -5}}
+                          sx={{cursor: "pointer", position: "relative" }}
                           onClick={() => currentPiece > 0 ? setCurrentPiece(currentPiece - 1) : ""}
                       >
                       </Image>
                     </Grid>
-                    <Grid item xs={10} sm={8} display="flex" alignItems="center" justifyContent="center">
+                    <Grid item xs={10} sm={6} display="flex" alignItems="center" justifyContent="center">
                       <Box sx={{width: 300, border: "solid black 2px"}}>
                         <MapPiece id={currentPiece} data={hydes[currentPiece]} key={currentPiece}>
                         </MapPiece>
                       </Box>
                     </Grid>
-                    <Grid item xs={1} sm={2} display="flex" justifyContent="left">
+                    <Grid item xs={1} sm={3} display="flex" justifyContent="left">
                       <Image
                           src="/images/right.png"
                           alt="Right"
                           fit="fill"
                           height="50px"
                           width="50px"
-                          sx={{cursor: "pointer", position: "relative", left: -5}}
+                          sx={{cursor: "pointer", position: "relative" }}
                           onClick={() => currentPiece < 3 ? setCurrentPiece(currentPiece + 1) : ""}
                       >
                       </Image>
