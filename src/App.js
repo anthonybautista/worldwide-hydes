@@ -41,7 +41,7 @@ function App() {
       return onValue(query, (snapshot) => {
         const data = snapshot.val();
         if (snapshot.exists()) {
-          console.log(data)
+          //console.log(data)
           setHydes(data);
         }
       });

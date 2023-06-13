@@ -47,14 +47,20 @@ export default function MapPiece(props) {
         return hydeInfo["humanName"];
     }
 
+    const isHyde = (modifier) => {
+        const currentHour = ((Date.now() / 1000) % (24 * 60 * 60)) / 3600;
+        const modifiedHour = currentHour + modifier;
+        return (modifiedHour >= 0 && modifiedHour < 6) || (modifiedHour >= 24 && modifiedHour < 30);
+    }
+
     return (
         <Box>
             <Box sx={{position: "absolute"}}>
                 {
                     getPins().map((item, index) => (
-                        <Box>
+                        <Box key={index}>
                             <Image
-                                src={`images/red-pin.png`}
+                                src={isHyde(Object.values(item)[0].location.timezone) ? `images/red-pin.png` : `images/blue-pin.png`}
                                 alt={`Red Pin`}
                                 fit="contain"
                                 height="25px"
@@ -87,7 +93,7 @@ export default function MapPiece(props) {
                 </CharacterDialogTitle>
                 <DialogContent dividers>
                     <Image
-                        src={`images/1A.png`}
+                        src={`http://44.204.241.129:8080/api/image/${tokenId}`}
                         alt={`Hyde ${tokenId}`}
                         fit="contain"
                         height="250px"
@@ -98,7 +104,7 @@ export default function MapPiece(props) {
                         {getName()}
                     </Typography>
                     <Typography gutterBottom>
-                        {`Location: ${hydeInfo["hydeName"]}`}
+                        {`Location: ${hydeInfo ? hydeInfo.location.name : ""}`}
                     </Typography>
                 </DialogContent>
             </CharacterDialog>
