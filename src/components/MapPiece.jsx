@@ -93,7 +93,7 @@ export default function MapPiece(props) {
                 </CharacterDialogTitle>
                 <DialogContent dividers>
                     <Image
-                        src={`http://44.204.241.129:8080/api/image/${tokenId}`}
+                        src={`https://api.worldwidehydes.com:5000/api/image/${tokenId}`}
                         alt={`Hyde ${tokenId}`}
                         fit="contain"
                         height="250px"
