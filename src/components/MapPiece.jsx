@@ -43,8 +43,11 @@ export default function MapPiece(props) {
     }
 
     const getName = () => {
-        //TODO: determine name by time
-        return hydeInfo["humanName"];
+        console.log(hydeInfo)
+        if (hydeInfo) {
+            return isHyde(hydeInfo.location.timezone) ? hydeInfo["hydeName"] : hydeInfo["humanName"];
+        }
+        return ""
     }
 
     const isHyde = (modifier) => {
@@ -60,7 +63,7 @@ export default function MapPiece(props) {
                     getPins().map((item, index) => (
                         <Box key={index}>
                             <Image
-                                src={isHyde(Object.values(item)[0].location.timezone) ? `images/red-pin.png` : `images/blue-pin.png`}
+                                src={isHyde(Object.values(item)[0].location.timezone) ? `images/blue-pin.png` : `images/red-pin.png`}
                                 alt={`Red Pin`}
                                 fit="contain"
                                 height="25px"
