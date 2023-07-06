@@ -9,3 +9,12 @@
 body {
   background-color: #2167BD;
 }
+
+#customized-dialog-title {
+  text-align: left;
+  margin-left: 108px;
+  margin-top: 12px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  font-size: 14px;
+}

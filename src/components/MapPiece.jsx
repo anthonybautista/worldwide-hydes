@@ -4,21 +4,29 @@ import '../App.css';
 import Image from "mui-image";
 import CharacterDialogTitle from "./CharacterDialog";
 
-const CharacterDialog = styled(Dialog)(({ theme }) => ({
-    '& .MuiDialogContent-root': {
-        padding: theme.spacing(2),
-    },
-    '& .MuiDialogActions-root': {
-        padding: theme.spacing(1),
-    },
-}));
-
 export default function MapPiece(props) {
     const [open, setOpen] = useState(false);
     const [tokenId, setTokenId] = useState(false);
     const [hydeInfo, setHydeInfo] = useState(false);
     const id = props.id;
     const hydes = props.data;
+
+    const CharacterDialog = styled(Dialog)(({ theme }) => ({
+        '& .MuiDialogContent-root': {
+            padding: theme.spacing(0),
+        },
+        '& .MuiDialogActions-root': {
+            padding: theme.spacing(1),
+        },
+        '& .MuiPaper-root': {
+            backgroundColor: "transparent",
+            backgroundImage: `${getFolder()}`,
+            backgroundRepeat: "no-repeat",
+            boxShadow: 'none',
+            width: 280,
+            height: 407,
+        }
+    }));
 
     const handleClickOpen = (id, hyde) => {
         setTokenId(id);
@@ -54,6 +62,15 @@ export default function MapPiece(props) {
         const currentHour = ((Date.now() / 1000) % (24 * 60 * 60)) / 3600;
         const modifiedHour = currentHour + modifier;
         return (modifiedHour >= 0 && modifiedHour < 6) || (modifiedHour >= 24 && modifiedHour < 30);
+    }
+
+    const getFolder = () => {
+        if (hydeInfo) {
+            if (isHyde(hydeInfo.location.timezone)) {
+                return 'url("images/hyde-folder.png")';
+            }
+        }
+        return 'url("images/human-folder.png")';
     }
 
     return (
@@ -94,20 +111,24 @@ export default function MapPiece(props) {
                 <CharacterDialogTitle id="customized-dialog-title" onClose={handleClose}>
                     {`Token ID # ${tokenId}`}
                 </CharacterDialogTitle>
-                <DialogContent dividers>
+                <DialogContent>
                     <Image
                         src={`https://api.worldwidehydes.com:5000/api/image/${tokenId}`}
                         alt={`Hyde ${tokenId}`}
                         fit="contain"
-                        height="250px"
-                        width="250px"
+                        height="155px"
+                        width="155px"
+                        sx={{marginTop: 1.2, marginLeft: 6.5}}
                     >
                     </Image>
-                    <Typography gutterBottom>
+                    <Typography gutterBottom sx={{marginTop: 3, marginLeft: 11.5}}>
                         {getName()}
                     </Typography>
-                    <Typography gutterBottom>
-                        {`Location: ${hydeInfo ? hydeInfo.location.name : ""}`}
+                    <Typography gutterBottom sx={{marginTop: -0.8, marginLeft: 14}}>
+                        {`${hydeInfo ? hydeInfo.location.name : ""}`}
+                    </Typography>
+                    <Typography gutterBottom sx={{marginTop: -0.7, marginLeft: 15.5}}>
+                        {`${hydeInfo ? hydeInfo.owner : ""}`}
                     </Typography>
                 </DialogContent>
             </CharacterDialog>
