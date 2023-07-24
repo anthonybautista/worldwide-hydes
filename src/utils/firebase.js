@@ -4,14 +4,14 @@ import { getDatabase } from "firebase/database";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    databaseURL: "https://ww-hydes-default-rtdb.firebaseio.com/",
-    apiKey: "AIzaSyCRBHZ5msgyrTHX8RqotDWtuUjTxF3NoUk",
-    authDomain: "ww-hydes.firebaseapp.com",
+    databaseURL: process.env.DB,
+    apiKey: process.env.KEY,
+    authDomain: process.env.AUTH,
     projectId: "ww-hydes",
-    storageBucket: "ww-hydes.appspot.com",
-    messagingSenderId: "505629824705",
-    appId: "1:505629824705:web:cf952d5fe731d39183e640",
-    measurementId: "G-N659MQ8GFC"
+    storageBucket: process.env.STORAGE,
+    messagingSenderId: process.env.SENDER,
+    appId: process.env.APPID,
+    measurementId: process.env.MID
 };
 
 // Initialize Firebase

@@ -103,9 +103,6 @@ function App() {
   };
 
   const getFolder = () => {
-    if (openArtist) {
-      return 'url("images/human-folder-blank.png")';
-    }
     return 'url("images/hyde-folder-blank.png")';
   }
 
@@ -218,10 +215,10 @@ function App() {
                   sx={{marginTop: 1.2, marginLeft: 6.5}}
               >
               </Image>
-              <Typography gutterBottom sx={{textAlign: "center", mt: 2}}>
+              <Typography gutterBottom sx={{textAlign: "center", mt: 2, marginLeft: -2}}>
                 {`Tyler Gibson`}
               </Typography>
-              <Box display="flex" justifyContent="center" sx={{mb: 3}}>
+              <Box display="flex" justifyContent="center" sx={{mb: 3, marginLeft: -2}}>
                 <Link to={{ pathname: "https://www.imdb.com/name/nm10305239/?ref_=nv_sr_srsg_0" }} target="_blank" rel="_norefferer">
                   <FontAwesomeIcon icon={faImdb} color="black" fontSize="32px" className="icons"/>
                 </Link>
@@ -250,10 +247,10 @@ function App() {
                   sx={{marginTop: 1.2, marginLeft: 6.5}}
               >
               </Image>
-              <Typography gutterBottom sx={{textAlign: "center", mt: 2}}>
+              <Typography gutterBottom sx={{textAlign: "center", mt: 2, marginLeft: -2}}>
                 {`Smolrun`}
               </Typography>
-              <Box display="flex" justifyContent="center" sx={{mb: 3}}>
+              <Box display="flex" justifyContent="center" sx={{mb: 3, marginLeft: -2}}>
                 <Link to={{ pathname: "https://twitter.com/smolrun" }} target="_blank" rel="_norefferer">
                   <FontAwesomeIcon icon={faTwitter} color="black" fontSize="32px" className="icons"/>
                 </Link>
@@ -279,7 +276,7 @@ function App() {
                   sx={{marginTop: 1.2, marginLeft: 6.5}}
               >
               </Image>
-              <Typography gutterBottom sx={{textAlign: "center", mt: 2}}>
+              <Typography gutterBottom sx={{textAlign: "center", mt: 2, marginLeft: -2}}>
                 {`Mint Details TBA`}
               </Typography>
             </DialogContent>

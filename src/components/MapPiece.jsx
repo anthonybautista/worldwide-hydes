@@ -116,18 +116,18 @@ export default function MapPiece(props) {
                         src={`https://api.worldwidehydes.com:5000/api/image/${tokenId}`}
                         alt={`Hyde ${tokenId}`}
                         fit="contain"
-                        height="155px"
-                        width="155px"
-                        sx={{marginTop: 1.2, marginLeft: 6.5}}
+                        height="170px"
+                        width="170px"
+                        sx={{marginTop: 1.2, marginLeft: 4.8}}
                     >
                     </Image>
-                    <Typography gutterBottom sx={{marginTop: 3, marginLeft: 11.5}}>
+                    <Typography gutterBottom sx={{marginTop: 1.6, marginLeft: -5, textAlign: "center"}}>
                         {getName()}
                     </Typography>
-                    <Typography gutterBottom sx={{marginTop: -0.8, marginLeft: 14}}>
+                    <Typography gutterBottom sx={{marginTop: 2.8, marginLeft: -5, textAlign: "center"}}>
                         {`${hydeInfo ? hydeInfo.location.name : ""}`}
                     </Typography>
-                    <Typography gutterBottom sx={{marginTop: -0.7, marginLeft: 15.5}}>
+                    <Typography gutterBottom sx={{marginTop: 2.8, marginLeft: -5, textAlign: "center"}}>
                         {`${hydeInfo ? hydeInfo.owner : ""}`}
                     </Typography>
                 </DialogContent>
