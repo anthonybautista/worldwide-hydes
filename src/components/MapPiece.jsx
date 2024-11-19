@@ -67,10 +67,10 @@ export default function MapPiece(props) {
     const getFolder = () => {
         if (hydeInfo) {
             if (isHyde(hydeInfo.location.timezone)) {
-                return 'url("images/hyde-folder.png")';
+                return 'url("images/hyde-folder2.png")';
             }
         }
-        return 'url("images/human-folder.png")';
+        return 'url("images/human-folder2.png")';
     }
 
     return (
@@ -127,9 +127,9 @@ export default function MapPiece(props) {
                     <Typography gutterBottom sx={{marginTop: 2.8, marginLeft: -5, textAlign: "center"}}>
                         {`${hydeInfo ? hydeInfo.location.name : ""}`}
                     </Typography>
-                    <Typography gutterBottom sx={{marginTop: 2.8, marginLeft: -5, textAlign: "center"}}>
-                        {`${hydeInfo ? hydeInfo.owner : ""}`}
-                    </Typography>
+                    {/*<Typography gutterBottom sx={{marginTop: 2.8, marginLeft: -5, textAlign: "center"}}>*/}
+                    {/*    {`${hydeInfo ? hydeInfo.owner : ""}`}*/}
+                    {/*</Typography>*/}
                 </DialogContent>
             </CharacterDialog>
         </Box>
